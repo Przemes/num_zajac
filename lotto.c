@@ -6,8 +6,9 @@
 #define ITER 10000000
 #define NUMTHREAD 1
 
-int kupon[6] = {1,10,23,40,42,45};
-int rezultat[7] = {0,0,0,0,0,0,0};
+int kupon[6] = {1,10,23,40,42,45};  /**< Our numbers */
+int rezultat[7] = {0,0,0,0,0,0,0};  /**< Table with results, how many times
+                                    /we hit 0,1,...,6 numbers from kupon */
 
 struct lotto{
 	int *vkupon;
@@ -21,8 +22,9 @@ pthread_mutex_t mtx;		/**< Mutex */
 void* losuj(void *vlotto);
 int main()
 {
-	struct lotto s_lotto[NUMTHREAD];
+        struct lotto s_lotto[NUMTHREAD];    /**< Array of lotto struct where length equal to NUMTHREAD */
 	int k;
+
 	for(k = 0; k<NUMTHREAD; k++)
 	{
 		s_lotto[k].vkupon = kupon;
